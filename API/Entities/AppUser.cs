@@ -11,6 +11,6 @@ public class AppUser {
     public byte[] PasswordSalt { get; set; } // 'dotnet ef migrations add UserPasswordAdded'
     // check migrations by going to Data/Migrations
     // then update the database with 'dotnet ef database update'
-    // then check database by going to 
+    // then check database by going to the command pallet and doing >sqllite open database
 
 }
