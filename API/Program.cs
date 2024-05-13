@@ -2,7 +2,9 @@
 // run using ‘cd API’ and ‘dotnet run’ or ‘dotnet watch’ for active reloading
 
 using Microsoft.EntityFrameworkCore;
-using API.Data; 
+using API.Data;
+using API.Interfaces;
+using API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,7 @@ builder.Services.AddDbContext<DataContext>(opt =>
 });
 
 builder.Services.AddCors();
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 var app = builder.Build();
 
