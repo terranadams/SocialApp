@@ -7,18 +7,18 @@ namespace API.Controllers;
 
 public class UsersController : BaseApiController 
 {
-    private readonly DataContext _context;
+    
+    private readonly DataContext _context; // DataContext is injected to interact with the database.
 
     public UsersController(DataContext context)
     {
-        _context = context;
+        _context = context; // Constructor to initialize DataContext through dependency injection.
     }
 
     [HttpGet] 
     public async Task<ActionResult<IEnumerable<AppUser>>> GetUser() {
 
         var users = await _context.Users.ToListAsync();
-
         return users;
     }
 

@@ -8,8 +8,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    public class AccountController: BaseApiController {
-        private readonly DataContext _context;
+    public class AccountController: BaseApiController {     // AccountController handles user registration and login functionalities.
+
+        private readonly DataContext _context;         // Inject DataContext for database operations.
+
         public AccountController(DataContext context) {
             _context = context;
         }
@@ -17,10 +19,10 @@ namespace API.Controllers
         [HttpPost("register")] // POST api/account/register
         public async Task<ActionResult<AppUser>> Register(RegisterDto registerDto)
         {
-
+            // Check if the username is already taken.
             if (await UserExists(registerDto.Username)) return BadRequest("Username is taken");
 
-            using var hmac = new HMACSHA512();
+            using var hmac = new HMACSHA512(); // Create a password hash and salt.
 
             var user = new AppUser
             {
@@ -42,9 +44,10 @@ namespace API.Controllers
             if (user == null) return Unauthorized("Invalid Username");
 
             using var hmac = new HMACSHA512(user.PasswordSalt);
-
+            
             var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
 
+            // Check if the computed hash matches the stored password hash.
             for (int i = 0; i < computedHash.Length; i++) {
                 if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid Password");
             }
