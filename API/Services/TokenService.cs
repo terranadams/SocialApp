@@ -33,8 +33,8 @@ namespace API.Services
             var tokenDescriptor = new SecurityTokenDescriptor 
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddDays(7); // this means the token will expire after a week
-                SigningCredentials = creds;
+                Expires = DateTime.Now.AddDays(7), // this means the token will expire after a week
+                SigningCredentials = creds
             };
 
             // Create a JwtSecurityTokenHandler instance to handle the token creation.
