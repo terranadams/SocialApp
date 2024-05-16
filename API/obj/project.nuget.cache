@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "MHy8zc4FNS/PGCSq+cvRsF2bhEOXTb0pqTU+pWQPE5HQVngHNpCTxAqPvc9OeamAQMXb9cEauF/Tqg23n7JufA==",
+  "dgSpecHash": "KYid32gDwDsk7/dL7DXfEC8wvh/M71/Ut1n38wDOmT5WlZhFvblZARN+tOI4Ad01v2vHSEw3liopMSZuaXDvjA==",
   "success": true,
   "projectFilePath": "/Users/terranadams/Desktop/SocialApp/API/API.csproj",
   "expectedPackageFiles": [
     "/Users/terranadams/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/Users/terranadams/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/8.0.5/microsoft.aspnetcore.authentication.jwtbearer.8.0.5.nupkg.sha512",
     "/Users/terranadams/.nuget/packages/microsoft.aspnetcore.openapi/8.0.1/microsoft.aspnetcore.openapi.8.0.1.nupkg.sha512",
     "/Users/terranadams/.nuget/packages/microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "/Users/terranadams/.nuget/packages/microsoft.codeanalysis.analyzers/3.3.3/microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
@@ -34,6 +35,8 @@
     "/Users/terranadams/.nuget/packages/microsoft.identitymodel.abstractions/7.5.2/microsoft.identitymodel.abstractions.7.5.2.nupkg.sha512",
     "/Users/terranadams/.nuget/packages/microsoft.identitymodel.jsonwebtokens/7.5.2/microsoft.identitymodel.jsonwebtokens.7.5.2.nupkg.sha512",
     "/Users/terranadams/.nuget/packages/microsoft.identitymodel.logging/7.5.2/microsoft.identitymodel.logging.7.5.2.nupkg.sha512",
+    "/Users/terranadams/.nuget/packages/microsoft.identitymodel.protocols/7.1.2/microsoft.identitymodel.protocols.7.1.2.nupkg.sha512",
+    "/Users/terranadams/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/7.1.2/microsoft.identitymodel.protocols.openidconnect.7.1.2.nupkg.sha512",
     "/Users/terranadams/.nuget/packages/microsoft.identitymodel.tokens/7.5.2/microsoft.identitymodel.tokens.7.5.2.nupkg.sha512",
     "/Users/terranadams/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
     "/Users/terranadams/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
