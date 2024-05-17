@@ -10,6 +10,7 @@ using API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using API.Extensions;
 
 // Start building the application configuration and services.
 var builder = WebApplication.CreateBuilder(args);
@@ -17,33 +18,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add MVC controllers to the services collection.
 builder.Services.AddControllers();
 
-// Add the data context for Entity Framework Core, configuring it to use SQLite
-// with a connection string from the app settings.
-builder.Services.AddDbContext<DataContext>(opt => 
-{
-    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
+builder.Services.AddApplicationServices(builder.Configuration); // Bringing in services from ApplicationServiceExtensions.cs
+builder.Services.AddIdentityServices(builder.Configuration); // Bringing in services from IdentityServiceExtensions.cs
 
-// Add Cross-Origin Resource Sharing (CORS) services to the service collection.
-// This allows your API to be called from different domains, which is particularly
-// useful during development.
-builder.Services.AddCors();
-
-// Register the token service with dependency injection making it available
-// for controller constructors and other services.
-builder.Services.AddScoped<ITokenService, TokenService>();
-
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options => {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding
-            .UTF8.GetBytes(builder.Configuration["TokenKey"])),
-            ValidateIssuer = false, 
-            ValidateAudience = false,
-        };
-    }); // this gives our server enough info to look at the token, and validate it based on the issuer signin key
 
 // Finish the building process and prepare to start the application.
 var app = builder.Build();
