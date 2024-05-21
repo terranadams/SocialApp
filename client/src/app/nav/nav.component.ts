@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class NavComponent {
 
+  model: any = {}
+
+  login() { // check the <form> tag in the html
+    console.log(this.model);
+  }
+
 }
