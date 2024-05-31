@@ -8,8 +8,8 @@ import { User } from '../_models/user';
 })
 export class AccountService { // this service will be responsible for making HTTP requests from our client to our server
   baseUrl = 'https://localhost:5001/api/';
-  private currentUserSource = new BehaviorSubject<User | null>(null)
-  currentUser$ = this.currentUserSource.asObservable();
+  private currentUserSource = new BehaviorSubject<User | null>(null) // BehaviorSubject to hold the current user state, initialized as null.
+  currentUser$ = this.currentUserSource.asObservable(); // Observable to expose the current user value changes.
 
   constructor(private http: HttpClient) { }
 
