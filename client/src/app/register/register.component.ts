@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class RegisterComponent {
   @Input() usersFromHomeComponent: any; // this prop gets passed down from within the home.component.html template
+  @Output() cancelRegister = new EventEmitter(); // this passes data from this child component to the parent home.component
 
   model: any = {}
 
@@ -14,7 +15,7 @@ export class RegisterComponent {
     console.log(this.model)
   }
   cancel() {
-    console.log('cancel')
+    this.cancelRegister.emit(false)
   }
 
 }
