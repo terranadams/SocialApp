@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AccountService } from '../_services/account.service';
 import { Observable, of } from 'rxjs';
 import { User } from '../_models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -13,7 +14,7 @@ export class NavComponent {
   model: any = {}
 
 
-  constructor(public accountService: AccountService) {}
+  constructor(public accountService: AccountService, private router: Router) {}
 
   ngOnInit(): void {
 
@@ -21,15 +22,14 @@ export class NavComponent {
 
   login() {
     this.accountService.login(this.model).subscribe({
-      next: response => {
-        console.log(response);
-      },
+      next: () => this.router.navigateByUrl('/members'),
       error: error => console.log(error)
     })
   }
 
   logout() {
     this.accountService.logout()
+    this.router.navigateByUrl('/')
   }
 
 }
