@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using API.Extensions;
+using API.Middleware;
 
 // Start building the application configuration and services.
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +25,9 @@ builder.Services.AddIdentityServices(builder.Configuration); // Bringing in serv
 
 // Finish the building process and prepare to start the application.
 var app = builder.Build();
+
+//Error handling middleware.
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Enforce HTTPS for increased security.
 app.UseHttpsRedirection();
